@@ -17,7 +17,7 @@ export default function Card({ movie }) {
 }
 
 const CardStyled = styled.div`
-	width: 400px;
+	width: 100%;
 	border: solid 1px #cccccc;
 	margin-top: 50px;
 	border-radius: 20px;
