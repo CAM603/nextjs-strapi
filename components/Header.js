@@ -1,14 +1,24 @@
 import styled from "@emotion/styled";
 import { rem } from "polished";
+import { Flex, Box } from "reflexbox";
+import Navigation from "./Navigation";
+import Link from "next/Link";
 
-export default function Header({ isDark }) {
+export default function Header({ isDark, navigation }) {
 	return (
 		<HeaderStyled isDark={isDark}>
-			<div className="container">
-				<div className="logo">
-					<p className="logo-text">Logo</p>
-				</div>
-			</div>
+			<Box variant="container">
+				<Flex justifyContent="space-between" alignItems="center">
+					<Link href="/">
+						<a>
+							<div className="logo">
+								<p className="logo-text">Logo</p>
+							</div>
+						</a>
+					</Link>
+					<Navigation navigation={navigation} />
+				</Flex>
+			</Box>
 		</HeaderStyled>
 	);
 }
@@ -18,8 +28,11 @@ const HeaderStyled = styled.header`
 	padding: 20px;
 
 	.logo {
-		display: flex;
-		align-items: center;
+		a {
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+		}
 
 		.logo-text {
 			color: #333333;
