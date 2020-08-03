@@ -3,8 +3,9 @@ import { rem } from "polished";
 import { Flex, Box } from "reflexbox";
 import Navigation from "./Navigation";
 import Link from "next/Link";
+import ToggleNavColorButton from "./ToggleNavColorButton";
 
-export default function Header({ isDark, navigation }) {
+export default function Header({ isDark }) {
 	return (
 		<HeaderStyled isDark={isDark}>
 			<Box variant="container">
@@ -16,7 +17,8 @@ export default function Header({ isDark, navigation }) {
 							</div>
 						</a>
 					</Link>
-					<Navigation navigation={navigation} />
+					<Navigation />
+					<ToggleNavColorButton />
 				</Flex>
 			</Box>
 		</HeaderStyled>
@@ -24,15 +26,16 @@ export default function Header({ isDark, navigation }) {
 }
 
 const HeaderStyled = styled.header`
-	background: ${(props) => (props.isDark ? "#000000" : "#efefef")};
+	background: ${(props) => (props.isDark ? "darkgrey" : "#efefef")};
 	padding: 20px;
 
+	a {
+		text-decoration: none;
+	}
+
 	.logo {
-		a {
-			display: flex;
-			align-items: center;
-			text-decoration: none;
-		}
+		display: flex;
+		align-items: center;
 
 		.logo-text {
 			color: #333333;

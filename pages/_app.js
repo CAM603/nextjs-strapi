@@ -8,6 +8,7 @@ import getConfig from "next/config";
 import fetch from "isomorphic-unfetch";
 import { DefaultSeo } from "next-seo";
 import SEO from "../next-seo.config";
+import ContextWrapper from "../components/ContextWrapper";
 
 function MyApp({ Component, pageProps, navigation }) {
 	return (
@@ -15,7 +16,9 @@ function MyApp({ Component, pageProps, navigation }) {
 			<DefaultSeo {...SEO} />
 			<ThemeProvider theme={theme}>
 				<GlobalStyles />
-				<Header isDark navigation={navigation} />
+				<ContextWrapper navigation={navigation}>
+					<Header isDark />
+				</ContextWrapper>
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
