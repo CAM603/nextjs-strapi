@@ -1,3 +1,20 @@
+import { NextSeo } from "next-seo";
+
 export default function About() {
-	return <div>I am the About page</div>;
+	const SEO = {
+		title: "About",
+		description: "an about page",
+
+		openGraph: {
+			title: "About",
+			description: "an about page",
+		},
+	};
+
+	return (
+		<>
+			<NextSeo {...SEO} />
+			<h3>About</h3>
+		</>
+	);
 }
